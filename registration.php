@@ -48,7 +48,7 @@ mysqli_close($conn);
 <div class="page-header">
 <h2>Registration Form in PHP with Validation</h2>
 </div>
-<p>Please fill all fields in the form</p>
+<p>Please fill all fields in this form</p>
 <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
 <div class="form-group">
 <label>Name</label>
