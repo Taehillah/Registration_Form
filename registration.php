@@ -29,7 +29,7 @@ VALUES('" . $name . "', '" . $email . "', '" . $mobile . "', '" . md5($password)
 header("location: login.php");
 exit();
 } else {
-echo "Error: " : "" . mysqli_error($conn);
+echo "Error: " ; "" . mysqli_error($conn);
 }
 mysqli_close($conn);
 }
