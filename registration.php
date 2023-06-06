@@ -24,7 +24,7 @@ $mobile_error = "Mobile number must be minimum of 10 characters";
 if($password != $cpassword) {
 $cpassword_error = "Password and Confirm Password doesn't match";
 }
-if(mysqli_query($conn, "INSERT INTO users(name, email, mobile_number ,password) 
+if(mysqli_query($conn, "INSERT INTO users(name, email, mobile, password) 
 VALUES('" . $name . "', '" . $email . "', '" . $mobile . "', '" . md5($password) . "')")) {
 header("location: login.php");
 exit();
