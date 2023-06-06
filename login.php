@@ -13,7 +13,10 @@ $email_error = "Please Enter Valid Email ID";
 if(strlen($password) < 6) {
 $password_error = "Password must be minimum of 6 characters";
 }  
-$result = mysqli_query($conn, "SELECT * FROM users WHERE email = '" . $email. "' and pass = '" . md5($password). "'");
+$stmt = $pdo->prepare("SELECT * FROM users WHERE email = :email AND pass = :password");
+$stmt->bindParam(':email', $email);
+$stmt->bindParam(':password', md5($password));
+$stmt->execute();
 if(!empty($result)){
 if ($row = mysqli_fetch_array($result)) {
 $_SESSION['user_id'] = $row['uid'];
