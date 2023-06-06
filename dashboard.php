@@ -8,7 +8,7 @@ header("Location: login.php");
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>User Info Dashboard | Tutsmake.com</title>
+<title>User Info Dashboard</title>
 <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>

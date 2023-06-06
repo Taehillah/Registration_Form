@@ -33,7 +33,7 @@ $error_message = "Incorrect Email or Password!!!";
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Simple Login Form in PHP with Validation | Tutsmake.com</title>
+<title>Simple Login Form in PHP with Validation</title>
 <link rel="stylesheet" type="text/css" 
 href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 </head>
