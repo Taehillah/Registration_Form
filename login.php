@@ -13,8 +13,7 @@ $email_error = "Please Enter Valid Email ID";
 if(strlen($password) < 6) {
 $password_error = "Password must be minimum of 6 characters";
 }  
-$result = mysqli_query($conn, "SELECT * FROM users 
-WHERE email = '" . $email. "' and pass = '" . md5($password). "'");
+$result = mysqli_query($conn, "SELECT * FROM users WHERE email = '" . $email. "' and pass = '" . md5($password). "'");
 if(!empty($result)){
 if ($row = mysqli_fetch_array($result)) {
 $_SESSION['user_id'] = $row['uid'];
