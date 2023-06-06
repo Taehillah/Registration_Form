@@ -2,9 +2,9 @@
 $servername='localhost';
 $username='root';
 $password='';
-$dbname = "my_db";
+$dbname = "logindb";
 $conn=mysqli_connect($servername,$username,$password,"$dbname");
   if(!$conn){
-      die('Could not Connect MySql Server:'.mysqli_error($this));
+      die('Could not Connect MySql Server:' .mysqli_error($this));
   }
 ?>
