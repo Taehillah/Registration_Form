@@ -1,67 +1,64 @@
 <?php
-session_start();
-require_once "db.php";
-if(isset($_SESSION['user_id'])!="") {
-header("Location: dashboard.php");
-}
-if (isset($_POST['login'])) {
-$email = mysqli_real_escape_string($conn, $_POST['email']);
-$password = mysqli_real_escape_string($conn, $_POST['password']);
-if(!filter_var($email,FILTER_VALIDATE_EMAIL)) {
-$email_error = "Please Enter Valid Email ID";
-}
-if(strlen($password) < 6) {
-$password_error = "Password must be minimum of 6 characters";
-}  
-$result = mysqli_query($conn, "SELECT * FROM users 
-WHERE email = '" . $email. "' and password = '" . md5($password). "'");
+$servername = 'localhost';
+$username = 'root';
+$password = '';
+$dbname = 'logindb';
 
-if(!empty($result)){
-if ($row = mysqli_fetch_array($result)) {
-$_SESSION['user_id'] = $row['uid'];
-$_SESSION['user_name'] = $row['name'];
-$_SESSION['user_email'] = $row['email'];
-$_SESSION['user_mobile'] = $row['mobile'];
-header("Location: dashboard.php");
-} 
-}else {
-$error_message = "Incorrect Email or Password!!!";
+$conn = mysqli_connect($servername, $username, $password, $dbname);
+if (!$conn) {
+    die('Could not connect to MySQL server: ' . mysqli_connect_error());
 }
+
+// Check if the form is submitted
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    // Retrieve form data
+    $email = $_POST['email'];
+    $password = $_POST['password'];
+
+    // Validate form data (you can add more validation if required)
+    if (empty($email) || empty($password)) {
+        $error = 'Please fill in all the fields.';
+    } else {
+        // Prepare and execute the SQL statement to fetch user data from the database
+        $query = "SELECT * FROM users WHERE email = '$email' AND password = '$password'";
+        $result = mysqli_query($conn, $query);
+
+        if (mysqli_num_rows($result) === 1) {
+            // User found, login successful
+            $success = 'Login successful!';
+        } else {
+            // User not found or incorrect credentials
+            $error = 'Invalid email or password.';
+        }
+    }
 }
+
 ?>
+
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-<meta charset="UTF-8">
-<title>Simple Login Form in PHP with Validation</title>
-<link rel="stylesheet" type="text/css" 
-href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <title>Login Page</title>
 </head>
 <body>
-<div class="container">
-<div class="row">
-<div class="col-lg-10">
-<div class="page-header">
-<h2>Login Form in PHP with Validation</h2>
-</div>
-<p>Please fill all fields in this form</p>
-<form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
-<div class="form-group ">
-<label>Email</label>
-<input type="email" name="email" class="form-control" value="" maxlength="30" required="">
-<span class="text-danger"><?php if (isset($email_error)) echo $email_error; ?></span>
-</div>
-<div class="form-group">
-<label>Password</label>
-<input type="password" name="password" class="form-control" value="" maxlength="8" required="">
-<span class="text-danger"><?php if (isset($password_error)) echo $password_error; ?></span>
-</div>  
-<input type="submit" class="btn btn-primary" name="login" value="submit">
-<br>
-You don't have account?<a href="registration.php" class="mt-3">Click Here</a>
-</form>
-</div>
-</div>     
-</div>
+    <h1>Login Page</h1>
+
+    <?php if (isset($error)) { ?>
+        <p style="color: red;"><?php echo $error; ?></p>
+    <?php } ?>
+
+    <?php if (isset($success)) { ?>
+        <p style="color: green;"><?php echo $success; ?></p>
+    <?php } ?>
+
+    <form method="POST" action="">
+        <label for="email">Email:</label>
+        <input type="email" name="email" required><br><br>
+
+        <label for="password">Password:</label>
+        <input type="password" name="password" required><br><br>
+
+        <input type="submit" value="Login">
+    </form>
 </body>
 </html>
