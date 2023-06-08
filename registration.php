@@ -39,12 +39,15 @@ mysqli_close($conn);
 <head>
 <meta charset="UTF-8">
 <title>Simple Registration Form in PHP with Validation </title>
+<style> </style>
 <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
     <style>
         body{
-            background-image:url(images/bk.jpg)
+            background-image:url(images/bk.jpg);
+            background-repeat:no-repeat;
+            background-size: cover;
         }
     </style>
 <div class="container">
