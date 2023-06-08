@@ -42,6 +42,11 @@ mysqli_close($conn);
 <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
+    <style>
+        body{
+            background-image:url(images/bk.jpg)
+        }
+    </style>
 <div class="container">
 <div class="row">
 <div class="col-lg-8 col-offset-2">
