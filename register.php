@@ -30,6 +30,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <title>Registration Page</title>
 </head>
 <body>
+<style>
+        body{
+            background-image:url(images/bk.jpg);
+            background-repeat:no-repeat;
+            background-size: cover;
+        }
+    </style>
     <h1>Registration Page</h1>
 
     <?php if (isset($error)) { ?>
