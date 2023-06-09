@@ -34,10 +34,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Login Page</title>
+    <title>Login</title>
 </head>
 <body>
-    <h1>Login Page</h1>
+    <h1>Login</h1>
 
     <?php if (isset($error)) { ?>
         <p style="color: red;"><?php echo $error; ?></p>
@@ -48,11 +48,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <?php } ?>
 
     <form method="POST" action="">
-        <label for="email">Email:</label>
-        <input type="email" name="email" required><br><br>
+        <label for="email">Email:</label><br>
+        <input type="email" id="email" name="email"><br><br>
 
-        <label for="password">Password:</label>
-        <input type="password" name="password" required><br><br>
+        <label for="password">Password:</label><br>
+        <input type="password" id="password" name="password"><br><br>
 
         <input type="submit" value="Login">
     </form>
