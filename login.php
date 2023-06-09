@@ -82,4 +82,40 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['signin'])) {
 
     <form method="POST" action="">
         <label for="name">Name:</label><br>
-        <input type="text
+        <input type="text" id="name" name="name"><br><br>
+
+        <label for="email">Email:</label><br>
+        <input type="email" id="email" name="email"><br><br>
+
+        <label for="mobile">Mobile:</label><br>
+        <input type="text" id="mobile" name="mobile"><br><br>
+
+        <label for="password">Password:</label><br>
+        <input type="password" id="password" name="password"><br><br>
+
+        <input type="submit" name="signup" value="Sign Up">
+    </form>
+
+    <hr>
+
+    <h1>Login</h1>
+
+    <?php if (isset($error) && isset($_POST['signin'])) { ?>
+        <p style="color: red;"><?php echo $error; ?></p>
+    <?php } ?>
+
+    <?php if (isset($success) && isset($_POST['signin'])) { ?>
+        <p style="color: green;"><?php echo $success; ?></p>
+    <?php } ?>
+
+    <form method="POST" action="">
+        <label for="email">Email:</label><br>
+        <input type="email" id="email" name="email"><br><br>
+
+        <label for="password">Password:</label><br>
+        <input type="password" id="password" name="password"><br><br>
+
+        <input type="submit" name="signin" value="Sign In">
+    </form>
+</body>
+</html>
