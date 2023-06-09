@@ -21,7 +21,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     } else {
         $verifiedPasscode = password_verify($password, PASSWORD_DEFAULT);
         // Prepare and execute the SQL statement to fetch user data from the database
-        $query = "SELECT * FROM users WHERE email = '$email' AND password = '$password'";
+        $query = "SELECT * FROM users WHERE email = '$email' AND password = '$verifiedPasscode'";
         $result = mysqli_query($conn, $query);
 
         if (mysqli_num_rows($result) === 1) {
