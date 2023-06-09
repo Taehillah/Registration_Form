@@ -19,9 +19,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (empty($email) || empty($password)) {
         $error = 'Please fill in all the fields.';
     } else {
-        $verifiedPasscode = password_verify($password, PASSWORD_DEFAULT);
         // Prepare and execute the SQL statement to fetch user data from the database
-        $query = "SELECT * FROM users WHERE email = '$email' AND password = '$verifiedPasscode'";
+        $query = "SELECT * FROM users WHERE email = '$email' AND password = '$password'";
         $result = mysqli_query($conn, $query);
 
         if (mysqli_num_rows($result) === 1) {
