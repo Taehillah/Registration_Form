@@ -1,13 +1,5 @@
 <?php
-$servername = 'localhost';
-$username = 'root';
-$password = '';
-$dbname = 'logindb';
-
-$conn = mysqli_connect($servername, $username, $password, $dbname);
-if (!$conn) {
-    die('Could not connect to MySQL server: ' . mysqli_connect_error());
-}
+require_once "db.php";
 
 // Check if the form is submitted
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -19,20 +11,24 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (empty($email) || empty($password)) {
         $error = 'Please fill in all the fields.';
     } else {
-        // Prepare and execute the SQL statement to fetch user data from the database
-        $query = "SELECT * FROM users WHERE email = '$email' AND password = '$password'";
+        // Retrieve the user from the database
+        $query = "SELECT * FROM users WHERE email = '$email'";
         $result = mysqli_query($conn, $query);
 
-        if (mysqli_num_rows($result) === 1) {
-            // User found, login successful
-            $success = 'Login successful!';
+        if ($result && mysqli_num_rows($result) > 0) {
+            $user = mysqli_fetch_assoc($result);
+
+            // Verify the password
+            if (password_verify($password, $user['password'])) {
+                $success = 'Login successful!';
+            } else {
+                $error = 'Invalid email or password.';
+            }
         } else {
-            // User not found or incorrect credentials
             $error = 'Invalid email or password.';
         }
     }
 }
-
 ?>
 
 <!DOCTYPE html>
