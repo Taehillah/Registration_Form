@@ -12,8 +12,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (empty($name) || empty($email) || empty($password)) {
         $error = 'Please fill in all the fields.';
     } else {
+        // Hash the password
+        $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
+
         // Prepare and execute the SQL statement to insert the data into the database
-        $query = "INSERT INTO users (name, email, password) VALUES ('$name', '$email', '$password')";
+        $query = "INSERT INTO users (name, email, password) VALUES ('$name', '$email', '$hashedPassword')";
         if (mysqli_query($conn, $query)) {
             $success = 'Registration successful!';
         } else {
@@ -21,8 +24,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         }
     }
 }
-
 ?>
+
 
 <!DOCTYPE html>
 <html>
