@@ -68,6 +68,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['signin'])) {
 <html>
 <head>
     <title>Signup & Login</title>
+    <style type="text/css">
+        body {
+                    background-color: darkgray;
+                    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+                    font-size: 14px;
+                    line-height: 1.5;
+                }
+        </style>
 </head>
 <body>
     <h1>Signup</h1>
