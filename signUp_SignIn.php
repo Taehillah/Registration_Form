@@ -77,7 +77,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['signin'])) {
                 }
       body form input{
      border: none;
-     border-radius:10px !important;
+     border-radius:5px !important;
     
       }
         </style>
