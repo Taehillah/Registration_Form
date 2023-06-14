@@ -5,7 +5,7 @@ require_once "db.php";
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['login'])) {
     // Retrieve form data
     $email = $_POST['email'];
-    $password = $_POST['password'];
+    $password = $_POST['passwordForm'];
 
     // Validate form data (you can add more validation if required)
     if (empty($email) || empty($password)) {
