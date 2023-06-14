@@ -65,5 +65,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['signup'])) {
 
         <input type="submit" name="signup" value="Sign Up">
     </form>
+    <a href="testSignIn.php">Sign In</a>
     </body>
     </html>
