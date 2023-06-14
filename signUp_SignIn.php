@@ -76,7 +76,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['signin'])) {
                     line-height: 1.5;
                 }
         .input {
-            border-radius: round(5px);
+            border-radius: round(15px);
         }
         </style>
 </head>
