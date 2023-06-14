@@ -53,7 +53,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['login'])) {
         <label for="email">Email:</label>
         <input type="email" name="email" id="email" required><br><br>
         <label for="password">Password:</label>
-        <input type="password" name="password" id="password" required><br><br>
+        <input type="password" name="passwordForm" id="password" required><br><br>
         <input type="submit" name="login" value="Login">
     </form>
     <p>Don't have an account? <a href="signup.php">Sign up</a></p>
