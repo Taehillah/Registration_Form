@@ -75,9 +75,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['signin'])) {
                     font-size: 14px;
                     line-height: 1.5;
                 }
-        .input {
-            border-radius: round(15px);
-        }
+      body form input{
+        border-radius: "10px";
+      }
         </style>
 </head>
 <body>
