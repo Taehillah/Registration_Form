@@ -76,7 +76,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['signin'])) {
                     line-height: 1.5;
                 }
                 form {
-                    text-align: center;
                     display: inline-block;
                 }
       body form input{
