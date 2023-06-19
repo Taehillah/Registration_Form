@@ -86,7 +86,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['signin'])) {
         </style>
 </head>
 <body>
-    <h1>Signup</h1>
+    <h1 class="headers">Signup</h1>
 
     <?php if (isset($error) && isset($_POST['signup'])) { ?>
         <p style="color: red;"><?php echo $error; ?></p>
@@ -114,7 +114,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['signin'])) {
 
     <hr>
 
-    <h1>Login</h1>
+    <h1 class="headers">Login</h1>
 
     <?php if (isset($error) && isset($_POST['signin'])) { ?>
         <p style="color: red;"><?php echo $error; ?></p>
