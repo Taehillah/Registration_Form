@@ -72,7 +72,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['signin'])) {
         body {
                     background-color: darkgray;
                     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-                    font-size: 14px;
+                    font-size: 13px;
                     line-height: 1.5;
                 }
                 form {
