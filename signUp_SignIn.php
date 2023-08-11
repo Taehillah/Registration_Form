@@ -1,5 +1,14 @@
 <?php
-require_once "db.php";
+//require_once "db.php";
+$servername='localhost';
+$username='root';
+$password='';
+$dbname = "logindb";
+
+$conn=mysqli_connect($servername,$username,$password,"$dbname");
+  if(!$conn){
+      die('Could not Connect MySql Server:' .mysqli_connect_error());
+  }
 
 // Sign Up
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['signup'])) {
